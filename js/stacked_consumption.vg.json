@@ -1,0 +1,62 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 900,
+    "height": 400,
+    "title": "Total number of International Students",
+    "data": {
+      "url": "https://raw.githubusercontent.com/ashvarg/FIT3179/main/Data/coffee_domestic_consumption.csv"
+    },
+    "params": [
+      {
+        "name": "Coffee_selection",
+        "value": "Arabica",
+        "bind": {
+          "input": "select",
+          "options": [
+            "Arabica",
+            "Robusta",
+            "Arabica/Robusta",
+            "Robusta/Arabica"
+          ],
+          "labels": [
+            "Arabica",
+            "Robusta",
+            "Arabica/Robusta",
+            "Robusta/Arabica"
+          ],
+          "name": "Coffee Selection"
+        }
+      }
+    ],
+    "transform": [
+      {
+        "filter": "Coffee_selection == null || datum.Coffee_type == Coffee_selection"
+      }
+    ],
+    "mark": {
+      "type": "bar",
+      "color": "#e21e2d"
+    },  
+    "encoding": {
+      "x": {
+        "field": "Country",
+        "type": "nominal",
+        "title": "Countries"
+      },
+      "y": {
+        "field": "Total_domestic_consumption",
+        "type": "quantitative",
+        "title": "Number of Students"
+      },
+      "tooltip": [
+        {
+          "field": "Country",
+          "title": "Country"
+        },
+        {
+          "field": "Total_domestic_consumption",
+          "title": "Total Consumption"
+        }
+      ]
+    }  
+  }
