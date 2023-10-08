@@ -7,6 +7,7 @@
     "url": "https://raw.githubusercontent.com/ashvarg/FIT3179/main/js/ne_110m_admin_0_countries.topojson",
     "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
   },
+  
   "projection": {"type": "equalEarth"},
   "layer": [
     {
@@ -79,5 +80,7 @@
       }
     }
   ],
+  "background": "#D2C5B9",
+
   "config": {}
 }

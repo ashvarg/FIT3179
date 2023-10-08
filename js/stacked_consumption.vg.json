@@ -15,14 +15,12 @@
           "options": [
             "Arabica",
             "Robusta",
-            "Arabica/Robusta",
-            "Robusta/Arabica"
+            "Arabica/Robusta"
           ],
           "labels": [
             "Arabica",
             "Robusta",
-            "Arabica/Robusta",
-            "Robusta/Arabica"
+            "Arabica/Robusta"
           ],
           "name": "Coffee Selection"
         }
@@ -58,5 +56,6 @@
           "title": "Total Consumption (in kg)"
         }
       ]
-    }  
+    },  
+    "background": "#D2C5B9"
   }
