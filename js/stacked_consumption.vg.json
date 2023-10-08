@@ -1,8 +1,8 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 900,
+    "width":600,
     "height": 400,
-    "title": "Total number of International Students",
+    "title": "Total Domestic Consumption of Coffee (1990-2020)",
     "data": {
       "url": "https://raw.githubusercontent.com/ashvarg/FIT3179/main/Data/coffee_domestic_consumption.csv"
     },
@@ -35,7 +35,7 @@
     ],
     "mark": {
       "type": "bar",
-      "color": "#e21e2d"
+      "color": "#A2C692"
     },  
     "encoding": {
       "x": {
@@ -46,7 +46,7 @@
       "y": {
         "field": "Total_domestic_consumption",
         "type": "quantitative",
-        "title": "Number of Students"
+        "title": "Total Consumption"
       },
       "tooltip": [
         {
@@ -55,7 +55,7 @@
         },
         {
           "field": "Total_domestic_consumption",
-          "title": "Total Consumption"
+          "title": "Total Consumption (in kg)"
         }
       ]
     }  
