@@ -53,7 +53,8 @@
         },
         {
           "field": "Total_domestic_consumption",
-          "title": "Total Consumption (in kg)"
+          "title": "Total Consumption (in kg)",
+          "format": ".3s"
         }
       ]
     },  

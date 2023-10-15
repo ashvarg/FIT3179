@@ -47,7 +47,6 @@
         },
         {"calculate": "datum.Value + 0.1", "as": "Value"},
         {"filter": "datum.Value > 0.1"}
-
       ],
       "mark": {"type": "geoshape", "stroke": "white"},
       "encoding": {
@@ -75,7 +74,8 @@
           {
             "field": "Value",
             "type": "quantitative",
-            "title": "Coffee Consumption (in kg)"
+            "title": "Coffee Consumption (in kg)",
+            "format": ".1d"
           }
         ]
       }
