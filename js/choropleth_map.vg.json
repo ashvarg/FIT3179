@@ -7,7 +7,6 @@
     "url": "https://raw.githubusercontent.com/ashvarg/FIT3179/main/js/ne_110m_admin_0_countries.topojson",
     "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
   },
-  
   "projection": {"type": "equalEarth"},
   "layer": [
     {
@@ -40,29 +39,44 @@
           "lookup": "properties.NAME",
           "from": {
             "data": {
-              "url": "https://raw.githubusercontent.com/ashvarg/FIT3179/main/Data/coffee_domestic_consumption.csv"
+              "url": "https://raw.githubusercontent.com/ashvarg/FIT3179/main/Data/psd_coffee.csv"
             },
-            "key": "Country",
-            "fields": ["Country", "2019/20", "Coffee_type"]
+            "key": "Country_Name",
+            "fields": ["Country_Name", "Value"]
           }
-        }
+        },
+        {"calculate": "datum.Value + 0.1", "as": "Value"},
+        {"filter": "datum.Value > 0.1"}
+
       ],
       "mark": {"type": "geoshape", "stroke": "white"},
       "encoding": {
         "color": {
-          "field": "2019/20",
+          "field": "Value",
           "type": "quantitative",
-          "title": "Coffee Consumption (in kg)",
+          "title": "Coffee Consumption",
           "scale": {
             "type": "log",
-            "domain": [1000, 10000, 100000, 1000000, 10000000, 1000000000],
-            "range": ["#ffffe5", "#f7fcb9", "#d9f0a3", "#addd8e", "#78c679","#41ab5d", "#238443", "#006837"]
+            "domain": [1, 10, 100, 1000, 10000],
+            "range": [
+              "#ffffe5",
+              "#f7fcb9",
+              "#d9f0a3",
+              "#addd8e",
+              "#78c679",
+              "#41ab5d",
+              "#238443",
+              "#006837"
+            ]
           }
         },
         "tooltip": [
           {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-          {"field": "Coffee_type", "type": "nominal", "title": "Coffee Type"},
-          {"field": "2019/20", "type": "quantitative", "title": "Coffee Consumption (in kg)"}
+          {
+            "field": "Value",
+            "type": "quantitative",
+            "title": "Coffee Consumption (in kg)"
+          }
         ]
       }
     },
@@ -86,7 +100,7 @@
         "text": {"field": "properties.NAME", "type": "nominal"},
         "opacity": {
           "condition": {
-            "test": "datum['properties.NAME'] == 'China' || datum['properties.NAME'] == 'Brazil' || datum['properties.NAME'] == 'Australia' || datum['properties.NAME'] == 'Malaysia' ||  datum['properties.NAME'] == 'Yemen' ||  datum['properties.NAME'] == 'United States of America'",
+            "test": "datum['properties.NAME'] == 'China' || datum['properties.NAME'] == 'Brazil' || datum['properties.NAME'] == 'Australia' || datum['properties.NAME'] == 'Malaysia' ||  datum['properties.NAME'] == 'United States of America'",
             "value": 1
           },
           "value": 0
@@ -95,6 +109,5 @@
     }
   ],
   "background": "#D2C5B9",
-
   "config": {}
 }

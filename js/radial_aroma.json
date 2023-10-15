@@ -1,0 +1,82 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {"text": "Coffee Categories"},
+  "width": 165,
+  "config": {"background": "#F5F5F5"},
+  "data": {
+    "url": "https://raw.githubusercontent.com/ashvarg/FIT3179/main/Data/df_arabica_clean.csv"
+  },
+  "params": [
+    {
+      "name": "var_selection",
+      "value": "Aroma",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Aroma",
+          "Flavor",
+          "Aftertaste",
+          "Acidity",
+          "Body",
+          "Balance"
+        ],
+        "labels": [
+          "Aroma",
+          "Flavor",
+          "Aftertaste",
+          "Acidity",
+          "Body",
+          "Balance"
+        ],
+        "name": "Category: "
+      }
+    }
+  ],
+  "transform": [{"filter": "datum.Aftertaste > 7.92"},
+    {
+      "aggregate": [
+        {"op": "average", "field": "Aroma", "as": "Aroma"},
+        {"op": "average", "field": "Flavor", "as": "Flavor"},
+        {"op": "average", "field": "Aftertaste", "as": "Aftertaste"},
+        {"op": "average", "field": "Acidity", "as": "Acidity"},
+        {"op": "average", "field": "Body", "as": "Body"},
+        {"op": "average", "field": "Balance", "as": "Balance"}
+      ],
+      "groupby": ["Variety"]
+    },
+    {"calculate": "datum[var_selection]", "as": "field_selection"}
+  ],
+  "layer": [
+    {"mark": {"type": "arc", "innerRadius": 10, "stroke": "#fff"}},
+    {
+      "mark": {"type": "text", "radiusOffset": 40},
+      "encoding": {"text": {"field": "Variety", "type": "nominal"}}
+    }
+  ],
+  "encoding": {
+    "theta": {"field": "field_selection", "type": "quantitative", "stack": true},
+    "radius": {
+      "field": "field_selection",
+      "scale": {"type": "sqrt", "zero": true, "rangeMin": 10}
+    },
+    "color": {
+      "field": "Variety",
+      "type": "nominal",
+      "legend": null,
+      "scale": {
+        "range": [
+          "#FFF442",
+          "#FFA142",
+          "#FF3E03",
+          "#FF4281",
+          "#7A6BFF",
+          "#D442FF"
+        ]
+      }
+    },
+    "tooltip": [
+      {"field": "Variety", "title": "Variety"},
+      {"field": "field_selection", "title": "Category", "format": ".2f"}
+    ]
+  }
+}
