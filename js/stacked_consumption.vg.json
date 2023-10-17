@@ -29,7 +29,7 @@
     "y": {
       "field": "Total_domestic_consumption",
       "type": "quantitative",
-      "title": "Total Consumption",
+      "title": "Total Consumption (in kg)",
       "scale": {"type": "log", "domain": [1, 100000000000]}
     },
     "color": {
