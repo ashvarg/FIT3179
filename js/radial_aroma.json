@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {"text": "Coffee Categories"},
   "width": 165,
-  "config": {"background": "#F5F5F5"},
+  "config": {"background": "#D2C5B9"},
   "data": {
     "url": "https://raw.githubusercontent.com/ashvarg/FIT3179/main/Data/df_arabica_clean.csv"
   },
@@ -65,12 +65,16 @@
       "legend": null,
       "scale": {
         "range": [
-          "#FFF442",
-          "#FFA142",
-          "#FF3E03",
-          "#FF4281",
-          "#7A6BFF",
-          "#D442FF"
+          "#862B0D",
+          "#445D482",
+          "#FAD6A5",
+          "#1C6758",
+          "#F5E8C7",
+          "#61481C",
+          "#9E6F21",
+          "#567189",
+          "#ECA869",
+          "#E6E5A3"
         ]
       }
     },
